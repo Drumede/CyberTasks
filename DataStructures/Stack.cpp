@@ -27,7 +27,7 @@ int pop(Stack* s) {
 	}
 	int oldData = 0;
 	Stack* oldNext = s->next;
-	oldData = oldNext->data;
+	oldData = s->data;
 	s->data = oldNext->data;
 	s->next = oldNext->next;
 	delete oldNext;
