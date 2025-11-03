@@ -4,38 +4,54 @@ using namespace std;
 
 void push(Stack* s, unsigned int element)
 {
+	if (isEmpty(s)) {
+		s->data = element;
+		s->next = nullptr;
+		return;
+	}
 	Stack* oldNode = new Stack();
-	initStack(oldNode)
+	initStack(oldNode);
+	oldNode->data = s->data;
 	oldNode->next = s->next;
-	s->data = val;
+	s->data = element;
 	s->next = oldNode;
 }
 
 int pop(Stack* s) {
 	if (isEmpty(s))
 		return -1;
+	if (s->next == nullptr) {
+		int oldData = s->data;
+		s->data = -1;
+		return oldData;
+	}
+	int oldData = 0;
 	Stack* oldNext = s->next;
+	oldData = oldNext->data;
 	s->data = oldNext->data;
 	s->next = oldNext->next;
 	delete oldNext;
+	return oldData;
 }
 
 void initStack(Stack* s) {
-	s->data = 0;
+	s->data = -1;
 	s->next = nullptr;
 }
 
 void cleanStack(Stack* s) {
-	if (s->next == nullptr) {
-		delete(s);
-		return;
+	Stack* lasttemp = s;
+	Stack* temp = s->next;
+	while (temp != nullptr) {
+		lasttemp = temp;
+		delete(lasttemp);
+		temp = lasttemp->next;
 	}
-	cleanStack(s->next);
-	delete(s);
+	s->data = -1;
 }
 
 bool isEmpty(Stack* s) {
-	if (s == nullptr)
+	if (s->data == -1)
 		return true;
 	return false;
 }
