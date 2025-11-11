@@ -11,6 +11,9 @@ void User::init(unsigned int id, std::string username, unsigned int age) {
 
 void User::clear() {
 	this->devicesList->clear();
+	this->username = "";
+	this->age = 0;
+	this->id = 0;
 }
 
 unsigned int User::getID() const {
