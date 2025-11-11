@@ -11,6 +11,7 @@ void User::init(unsigned int id, std::string username, unsigned int age) {
 
 void User::clear() {
 	this->devicesList->clear();
+	delete this->devicesList;
 	this->username = "";
 	this->age = 0;
 	this->id = 0;
