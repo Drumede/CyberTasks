@@ -1,10 +1,10 @@
 #include "Device.h"
-#include <iostream>
 
-void Device::init(int deviceId, DeviceType deviceType, std::string deviceOs) {
-	this->id = deviceId;
-	this->type = deviceType;
-	this->os = deviceOs;
+void Device::init(int id, DeviceType type, std::string os) {
+	this->id = id;
+	this->type = type;
+	this->os = os;
+	this->active = true;
 }
 
 std::string Device::getOS() const {

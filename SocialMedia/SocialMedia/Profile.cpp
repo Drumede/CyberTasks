@@ -1,5 +1,4 @@
 #include "Profile.h"
-#include <iostream>
 
 void Profile::init(User owner) {
 	this->owner = owner;
@@ -99,16 +98,9 @@ void Profile::changeWordInStatus(std::string word_to_replace, std::string new_wo
 
 	while ((pos = result.find(word_to_replace, pos)) != std::string::npos) {
 		// check word boundaries
-		bool leftOk = (pos == 0 || result[pos - 1] == ' ' || result[pos - 1] == '\t' || result[pos - 1] == '\n');
-		bool rightOk = (pos + word_to_replace.size() == result.size() || result[pos + word_to_replace.size()] == ' ' || result[pos + word_to_replace.size()] == '\t' || result[pos + word_to_replace.size()] == '\n');
 
-		if (leftOk && rightOk) {
-			result.replace(pos, word_to_replace.size(), new_word);
-			pos += new_word.size();
-		}
-		else {
-			pos += word_to_replace.size(); // skip this non-word match
-		}
+		result.replace(pos, word_to_replace.size(), new_word);
+		pos += new_word.size();
 	}
 
 	this->page->setStatus(result);

@@ -1,5 +1,4 @@
 #include "Page.h"
-#include <iostream>
 
 void Page::init() {
 	this->posts = "";

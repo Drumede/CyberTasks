@@ -1,5 +1,4 @@
 #include "SocialNetwork.h"
-#include <iostream>
 #define WINDOWS "Windows1"
 
 void SocialNetwork::init(std::string networkName, int minAge) {

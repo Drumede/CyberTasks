@@ -1,5 +1,4 @@
 #include "User.h"
-#include <iostream>
 
 void User::init(unsigned int id, std::string username, unsigned int age) {
 	this->id = id;
