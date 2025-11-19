@@ -1,7 +1,7 @@
 #pragma once
 #include "PlainText.h"
 
-class ShiftText : public PlainText {
+class ShiftText : private PlainText {
 	int _key;
 public:
 	ShiftText(string text, int key);
