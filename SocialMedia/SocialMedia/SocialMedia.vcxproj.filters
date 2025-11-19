@@ -65,8 +65,5 @@
     <ClCompile Include="SocialNetwork.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tester.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
