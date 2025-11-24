@@ -136,7 +136,6 @@
     <ClCompile Include="PlainText.cpp" />
     <ClCompile Include="ShiftText.cpp" />
     <ClCompile Include="SubstitutionText.cpp" />
-    <ClCompile Include="test5operator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dictionary.csv" />
