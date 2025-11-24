@@ -46,3 +46,9 @@ string ShiftText::decrypt() {
 	this->_isEnc = false;
 	return this->_text;
 }
+
+ostream& operator<<(std::ostream& os, const ShiftText& text) {
+	os << "ShiftText" << "\n\n";
+	os << text.getText();
+	return os;
+}

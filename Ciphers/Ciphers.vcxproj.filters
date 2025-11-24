@@ -50,7 +50,7 @@
     <ClCompile Include="FileHelper.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="test4Files.cpp">
+    <ClCompile Include="test5operator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

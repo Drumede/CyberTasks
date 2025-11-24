@@ -12,4 +12,5 @@ public:
 	static string decrypt(string text);
 	using ShiftText::encrypt;
 	using ShiftText::decrypt;
+	friend ostream& operator<<(std::ostream& os, const CaesarText& text);
 };

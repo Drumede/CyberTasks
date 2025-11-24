@@ -14,5 +14,6 @@ public:
 	static string decrypt(string text, int key);
 	string encrypt();
 	string decrypt();
+	friend ostream& operator<<(std::ostream& os, const ShiftText& text);
 
 };

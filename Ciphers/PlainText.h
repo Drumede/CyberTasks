@@ -13,4 +13,5 @@ public:
 	~PlainText();
 	bool isEncrypted() const;
 	string getText() const;
+	friend ostream& operator<<(std::ostream& os, const PlainText& text);
 };

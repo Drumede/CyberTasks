@@ -68,3 +68,9 @@ string SubstitutionText::decrypt() {
 	this->_isEnc = false;
 	return this->_text;
 }
+
+ostream& operator<<(std::ostream& os, const SubstitutionText& text) {
+	os << "SubstitutionText" << "\n\n";
+	os << text.getText();
+	return os;
+}

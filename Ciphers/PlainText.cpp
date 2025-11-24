@@ -19,3 +19,9 @@ bool PlainText::isEncrypted() const {
 string PlainText::getText() const {
 	return this->_text;
 }
+
+ostream& operator<<(std::ostream& os, const PlainText& text) {
+	os << "PlainText" << "\n\n";
+	os << text.getText();
+	return os;
+}
