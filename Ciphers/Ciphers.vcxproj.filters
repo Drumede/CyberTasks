@@ -21,16 +21,47 @@
     <ClInclude Include="ShiftText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CaesarText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SubstitutionText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BonusText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PlainText.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="test1Shift.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ShiftText.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="CaesarText.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SubstitutionText.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileHelper.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test4Files.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dictionary.csv">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="expected.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
