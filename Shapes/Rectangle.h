@@ -17,6 +17,8 @@ namespace myShapes
 		~Rectangle();
 
 		// Methods
+		double getArea() const override;
+
 		void draw(const Canvas& canvas) override;
 		void clearDraw(const Canvas& canvas) override;
 

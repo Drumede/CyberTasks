@@ -15,17 +15,16 @@ public:
 	Point getSource() const;
 	Point getDestination() const;
 
+	// Methods
+
 	double getArea() const override;
 	double getPerimeter() const override;
 
 	void move(Point other) override;
 	void printDetails() override;
 
-	// Methods
 	void draw(const Canvas& canvas) override;
 	void clearDraw(const Canvas& canvas) override;
-
-	// override functions if need (virtual + pure virtual)
 
 private:
 	Point _source;

@@ -16,14 +16,19 @@ public:
 	~Circle();
 
 	// Getters
-	Point getCenter();
-	double getRadius();
+	Point getCenter() const;
+	double getRadius() const;
 
 	// Methods
+	double getArea() const override;
+	double getPerimeter() const override;
+
+	void move(Point other) override;
+	void printDetails() override;
+
 	void draw(const Canvas& canvas) override;
 	void clearDraw(const Canvas& canvas) override;
-
-	// add fields
-	// override functions if need (virtual + pure virtual)
-
+private:
+	Point _center;
+	double _radius;
 };

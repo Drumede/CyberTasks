@@ -33,6 +33,11 @@ Point& Point::operator+=(const Point& other) {
 	return *this;
 }
 
+bool Point::operator==(const Point& other) {
+
+	return this->_x == other._x && this->_y == other._y;
+}
+
 // Getters
 double Point::getX() const {
 	return this->_x;

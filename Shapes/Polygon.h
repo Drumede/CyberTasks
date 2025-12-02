@@ -14,9 +14,14 @@ public:
 	~Polygon();
 
 	// Methods
+	double getPerimeter() const override;
+
+	double* getLengths() const;
+
+	void move(Point other) override;
 
 	// Getters
-	std::vector<Point> getPoints();
+	std::vector<Point> getPoints() const;
 
 	// override functions if need (virtual + pure virtual)
 

@@ -21,6 +21,7 @@ public:
 	// Methods
 	virtual double getArea() const;
 	virtual double getPerimeter() const;
+
 	virtual void move(Point other); // add the Point to all the points of shape
 	virtual void printDetails();
 

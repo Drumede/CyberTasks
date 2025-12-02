@@ -1,14 +1,18 @@
 #include "Arrow.h"
 
-Arrow::Arrow(Point a, Point b, std::string type, std::string name) : Shape(type,name) {
+Arrow::Arrow(Point a, Point b, std::string type, std::string name) : Shape(name,type) {
+	if (a == b) {
+		std::cout << "The two points of an arrow cannot be the same!" << std::endl;
+		exit(1);
+	}
 	this->_source = a;
 	this->_destination = b;
 }
 
 // Destructor
 Arrow::~Arrow() {
-	delete &this->_source;
-	delete& this->_destination;
+	this->_source.~Point();
+	this->_destination.~Point();
 }
 
 // Getters

@@ -15,6 +15,7 @@ public:
 	// Operators
 	Point operator+(const Point& other) const;
 	Point& operator+=(const Point& other);
+	bool operator==(const Point& other);
 
 	// Getters
 	double getX() const;
