@@ -3,6 +3,20 @@
 #include "Canvas.h"
 #include <vector>
 
+enum MainSelect {
+	NEW = 0,
+	MODIFY,
+	DELETEALL,
+	EXIT
+};
+
+enum ShapeSelect {
+	CIRC = 0,
+	ARROW,
+	TRI,
+	RECT
+};
+
 class Menu
 {
 public:
@@ -14,6 +28,6 @@ public:
 
 private: 
 	Canvas _canvas;
-	// define a vector that contains the shapes
+	std::vector<Shape> _shapes;
 };
 
