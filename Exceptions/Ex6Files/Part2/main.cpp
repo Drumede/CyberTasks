@@ -5,33 +5,34 @@
 #include "Pentagon.h"
 #include "Hexagon.h"
 #include "ShapeException.h"
+#include "InputException.h"
 
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <limits>
 
-bool readSafeDouble(double& out)
+// Helper: safely read a double or throw InputException
+void readDoubleOrThrow(double& out)
 {
     if (std::cin >> out)
-        return true;
+        return;
 
-    std::cout << "Invalid number. Try again.\n";
     std::cin.clear();
     std::string discard;
     std::getline(std::cin, discard);
-    return false;
+    throw InputException();
 }
 
-bool readSafeInt(int& out)
+// Helper: safely read an int or throw InputException
+void readIntOrThrow(int& out)
 {
     if (std::cin >> out)
-        return true;
+        return;
 
-    std::cout << "Invalid number. Try again.\n";
     std::cin.clear();
     std::string discard;
     std::getline(std::cin, discard);
-    return false;
+    throw InputException();
 }
 
 int main()
@@ -40,6 +41,7 @@ int main()
     double rad = 0, ang = 0, ang2 = 180;
     int height = 0, width = 0;
 
+    // Default objects (required for pointer usage in the original code)
     Circle circ("defaultCircle", "none", 1);
     Quadrilateral quad("defaultQuad", "none", 1, 1);
     rectangle rec("defaultRec", "none", 1, 1);
@@ -52,7 +54,7 @@ int main()
     while (exitKey != 'x')
     {
         try {
-            std::cout << "\nShape menu:\n"
+            std::cout << "\nSelect shape:\n"
                 << "c = circle\n"
                 << "q = quadrilateral\n"
                 << "r = rectangle\n"
@@ -60,13 +62,14 @@ int main()
                 << "n = pentagon\n"
                 << "h = hexagon\n";
 
+            // Read a string to detect multi-character weird input
             std::string s;
             std::cin >> s;
 
             if (s.size() != 1) {
                 std::cout << "Warning – Don’t try to build more than one shape at once\n";
-                std::string junk;
-                std::getline(std::cin, junk);
+                std::string extra;
+                std::getline(std::cin, extra);
                 continue;
             }
 
@@ -75,9 +78,9 @@ int main()
             switch (choice)
             {
             case 'c':
-                std::cout << "Enter color, name, radius:\n";
+                std::cout << "Enter: color name radius\n";
                 std::cin >> col >> nam;
-                if (!readSafeDouble(rad)) continue;
+                readDoubleOrThrow(rad);
                 circ.setColor(col);
                 circ.setName(nam);
                 circ.setRad(rad);
@@ -85,10 +88,10 @@ int main()
                 break;
 
             case 'q':
-                std::cout << "Enter name, color, height, width:\n";
+                std::cout << "Enter: name color height width\n";
                 std::cin >> nam >> col;
-                if (!readSafeInt(height)) continue;
-                if (!readSafeInt(width)) continue;
+                readIntOrThrow(height);
+                readIntOrThrow(width);
                 quad.setName(nam);
                 quad.setColor(col);
                 quad.setHeight(height);
@@ -97,10 +100,10 @@ int main()
                 break;
 
             case 'r':
-                std::cout << "Enter name, color, height, width:\n";
+                std::cout << "Enter: name color height width\n";
                 std::cin >> nam >> col;
-                if (!readSafeInt(height)) continue;
-                if (!readSafeInt(width)) continue;
+                readIntOrThrow(height);
+                readIntOrThrow(width);
                 rec.setName(nam);
                 rec.setColor(col);
                 rec.setHeight(height);
@@ -109,12 +112,12 @@ int main()
                 break;
 
             case 'p':
-                std::cout << "Enter name, color, height, width, angle1, angle2:\n";
+                std::cout << "Enter: name color height width angle1 angle2\n";
                 std::cin >> nam >> col;
-                if (!readSafeInt(height)) continue;
-                if (!readSafeInt(width)) continue;
-                if (!readSafeDouble(ang)) continue;
-                if (!readSafeDouble(ang2)) continue;
+                readIntOrThrow(height);
+                readIntOrThrow(width);
+                readDoubleOrThrow(ang);
+                readDoubleOrThrow(ang2);
                 para.setName(nam);
                 para.setColor(col);
                 para.setHeight(height);
@@ -124,9 +127,9 @@ int main()
                 break;
 
             case 'n':
-                std::cout << "Enter name, color, side:\n";
+                std::cout << "Enter: name color side\n";
                 std::cin >> nam >> col;
-                if (!readSafeDouble(rad)) continue;
+                readDoubleOrThrow(rad);
                 pent.setName(nam);
                 pent.setColor(col);
                 pent.setSide(rad);
@@ -134,9 +137,9 @@ int main()
                 break;
 
             case 'h':
-                std::cout << "Enter name, color, side:\n";
+                std::cout << "Enter: name color side\n";
                 std::cin >> nam >> col;
-                if (!readSafeDouble(rad)) continue;
+                readDoubleOrThrow(rad);
                 hex.setName(nam);
                 hex.setColor(col);
                 hex.setSide(rad);
@@ -145,22 +148,26 @@ int main()
 
             default:
                 std::cout << "Invalid selection.\n";
-                break;
             }
 
-            std::cout << "Press x to exit, or any key to continue: ";
+            std::cout << "Press x to exit, any other key to continue: ";
             std::cin >> exitKey;
         }
-        catch (const ShapeException& e) {
-            std::cout << e.what() << "\n";
+        catch (const InputException& ie) {
+            // Print message and recover input state
+            std::cout << ie.what() << "\nPlease enter numeric values only.\n";
+            continue;
+        }
+        catch (const ShapeException& se) {
+            std::cout << se.what() << std::endl;
             continue;
         }
         catch (const std::exception& e) {
-            std::cout << e.what() << "\n";
+            std::cout << e.what() << std::endl;
             continue;
         }
         catch (...) {
-            std::cout << "Unknown error.\n";
+            std::cout << "Unknown exception caught.\n";
             continue;
         }
     }
