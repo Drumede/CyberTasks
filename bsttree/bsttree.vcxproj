@@ -24,13 +24,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BSNode.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Test5TemplatesBST.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="printTreeToFile.lib" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="printTreeToFile.pdb" />
+    <None Include="BSNode.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

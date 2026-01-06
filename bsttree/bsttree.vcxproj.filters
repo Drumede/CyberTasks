@@ -15,28 +15,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BSNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="printTreeToFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BSNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Test5TemplatesBST.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="BSNode.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="printTreeToFile.lib">
-      <Filter>Header Files</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="printTreeToFile.pdb">
+    <None Include="BSNode.hpp">
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
